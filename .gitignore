@@ -1,0 +1,9 @@
+paper/*.out
+paper/*.log
+paper/*.aux
+paper/*.bbl
+paper/*.bcf
+paper/*.blg
+paper/*.pdf
+paper/*.run.xml
+paper/*.synctex.gz
