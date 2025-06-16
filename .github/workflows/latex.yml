@@ -47,8 +47,8 @@ jobs:
 
       # Publishing the PDF as Release
       - name: Upload as release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest-pdf
+          tag_name: latest
           files: ./paper/ccb.pdf
           token: ${{ secrets.GITHUB_TOKEN }}
