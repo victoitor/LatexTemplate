@@ -37,7 +37,7 @@ jobs:
       - name: Run Tectonic + Biber
         run: tectonic ./paper/ccb.tex
       - name: Upload pdf
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: main-paper
           path: ./paper/ccb.pdf
