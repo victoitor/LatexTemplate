@@ -1,0 +1,23 @@
+{
+  "name": "LaTeX on Debian Stable",
+  "image": "debian:stable-slim",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+      "packages": "texlive-latex-base, texlive-latex-extra, texlive-fonts-recommended, texlive-science, texlive-pictures, texlive-publishers, texlive-lang-english, texlive-lang-portuguese, latexmk, texlive-bibtex-extra, biber",
+      "upgradePackages": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "james-yu.latex-workshop",
+        "github.vscode-pull-request-github"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}

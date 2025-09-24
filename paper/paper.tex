@@ -1,0 +1,170 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=1in]{geometry} % full-width
+
+% AMS Packages
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% Useful theorem tools (like restate) and fix cleveref names
+\usepackage{thmtools}
+
+% Unicode
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Biblatex
+\usepackage[style=alphabetic, sortcites, maxalphanames=5,minalphanames=4,maxbibnames=99]{biblatex} 
+\addbibresource{paper.bib}
+
+% Better control over item lists
+\usepackage{enumitem}
+
+% Hyperref
+\usepackage{hyperref}
+\hypersetup{
+	unicode,
+	colorlinks,
+    allcolors=blue,
+}
+\usepackage[
+    noabbrev,   % E.g., "Figure" instead of "Fig."
+    capitalise, % E.g., "Figure" instead of "figure"
+    nameinlink  % Make "Figure 1" linked instead of just "1".
+  ]{cleveref} 
+
+% TikZ and figures
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{subcaption}
+
+% Allow for Case environment to reset
+\usepackage{chngcntr}
+
+% Theorem, Lemma, etc
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}{Claim}[theorem]
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{criterion}[theorem]{Criterion}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{principle}[theorem]{Principle}
+\newtheorem{case}{Case}
+
+\counterwithin*{case}{theorem}
+
+\newcommand{\crefrangeconjunction}{--}
+\crefname{definition}{Definition}{Definitions}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmata}
+\crefname{case}{Case}{Cases}
+
+% Our commands
+\usepackage{xspace}
+
+% \DeclareMathOperator{\stLink}{start}
+% \DeclareMathOperator{\enLink}{end}
+
+% \newcommand{\N}{\mathbb{N}\xspace}
+% \newcommand{\Acal}{\mathcal{A}\xspace}
+% \newcommand{\Ccal}{\mathcal{C}\xspace}
+% \newcommand{\Lcal}{\mathcal{L}\xspace}
+% \newcommand{\Pcal}{\mathcal{P}\xspace}
+% \newcommand{\Hcal}{\mathcal{H}\xspace}
+% \newcommand{\Qcal}{\mathcal{Q}\xspace}
+% \newcommand{\Vcal}{\mathcal{V}\xspace}
+% \newcommand{\Ocal}{\mathcal{O}\xspace}
+% \newcommand{\Zcal}{\mathcal{Z}\xspace}
+
+% Function references
+
+\newcommand{\fref}[2]{\hyperref[#2]{\ensuremath{#1_{\ref*{#2}}}}}
+\newcommand{\caseref}[2]{%
+	\hyperref[#2]{\namecref{#1}~\labelcref*{#1}~\ref*{#2}}%
+}
+
+% \newcommand{\hB}{\fref{h}{lem:bramble-congest-2}}
+% \newcommand{\vB}{\fref{v}{lem:bramble-congest-2}}
+% \newcommand{\pBC}{\fref{p}{lem:bidirected-clique}}
+
+
+%%%%%%%% OUR COMMANDS
+
+% \DeclareMathOperator{\source}{\text{{\sf s}}^-\xspace}
+% \DeclareMathOperator{\sink}{\text{{\sf s}}^+\xspace}
+
+% \newcommand{\NP}{{\sf NP}\xspace}
+% \newcommand{\FPT}{{\sf FPT}\xspace}
+% \newcommand{\XP}{{\sf XP}\xspace}
+% \newcommand{\ETH}{{\sf ETH}\xspace}
+% \newcommand{\W}{{\sf W}\xspace}
+
+
+% \newcommand{\cupall}{\pmb{\bigcup}}
+% \newcommand{\lipItem}[1]{#1}
+
+%%%%%%% END
+
+%For comments in the text
+
+\usepackage[loadshadowlibrary, shadow]{todonotes}
+% \usepackage[disable]{todonotes} % Don't print any notes
+\setuptodonotes{tickmarkheight=3pt}
+
+\newcommand{\vic}[1]{\todo[author=Victor]{#1}}
+\newcommand{\vicInline}[1]{\todo[inline,author=Victor]{#1}}
+
+% Author info
+\title{Paper template}
+\author{
+	Victor Campos
+	% \and
+	% Raul Lopes
+	% \and
+	% Walner Mendonça
+	% \and
+	% Rodrigo Nogueira
+	% \and
+	% Ignasi Sau
+}
+
+\date{
+	% \today
+}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		
+		% \noindent\textbf{Keywords:} bramble, congestion
+	\end{abstract}
+
+	\tableofcontents
+
+	\section{Introduction}
+	\label{sec:intro}
+	
+	
+	\section{Preliminaries}
+	\label{sec:pre}
+
+
+
+\clearpage
+
+\printbibliography	
+	
+\end{document}
