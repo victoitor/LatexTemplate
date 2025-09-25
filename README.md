@@ -1,4 +1,4 @@
-# Finding Bramble of Constant Congestion
+# Latex Paper Template
 
 ## Where is the PDF?
 
