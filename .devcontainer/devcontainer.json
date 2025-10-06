@@ -5,7 +5,7 @@
     "ghcr.io/devcontainers/features/common-utils:2": {},
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "texlive-latex-extra, texlive-lang-english, texlive-lang-portuguese, latexmk, tex-fmt, make, texlive-bibtex-extra, biber",
+      "packages": "texlive-latex-extra, texlive-lang-english, texlive-lang-portuguese, texlive-science, latexmk, tex-fmt, make, texlive-bibtex-extra, biber",
       "upgradePackages": true
     }
   },
