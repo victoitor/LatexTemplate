@@ -4,6 +4,7 @@ TMPDIR	:= tmp
 OUTDIR	:= out
 
 # Procura todos os arquivos .tex nas subpastas de src/ e faz escape de espaços
+# TEXFILES	:= $(shell find $(SRCDIR) -type f -name '*.tex' | sed 's/\ /\\ /g')
 TEXFILES	:= $(SRCDIR)/paper.tex
 PDFFILES	:= $(TEXFILES:$(SRCDIR)/%.tex=$(OUTDIR)/%.pdf)
 
