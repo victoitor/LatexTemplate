@@ -13,7 +13,7 @@ TEXFILES	:= $(shell find $(SRCDIR) -type f -name '*.tex')
 PDFFILES	:= $(TEXFILES:$(SRCDIR)/%.tex=$(OUTDIR)/%.pdf)
 
 # Flags para os comandos
-LATEXFLAGS		:= -pdf
+LATEXFLAGS		= -pdf
 LATEXFLAGS		+= -synctex=1 
 LATEXFLAGS		+= -interaction=nonstopmode 
 LATEXFLAGS		+= -file-line-error 
