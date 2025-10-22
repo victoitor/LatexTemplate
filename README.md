@@ -6,6 +6,9 @@
 
 [Here](<link>) are the images generated from the whiteboards.
 
+# Links
+
+[latexmk](https://ctan.org/pkg/latexmk/)
 
 # Git Workflow Guide
 
