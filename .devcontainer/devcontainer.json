@@ -22,5 +22,11 @@
       ]
     }
   },
+  "securityOpt": [
+    "label=disable"
+  ],  
+  "remoteEnv": {
+    "PODMAN_USERNS": "keep-id"
+  },
   "remoteUser": "vscode"
 }
