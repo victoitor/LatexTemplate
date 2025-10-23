@@ -16,7 +16,6 @@ PDFFILES	:= $(TEXFILES:$(SRCDIR)/%.tex=$(OUTDIR)/%.pdf)
 LATEXFLAGS		= -pdf
 LATEXFLAGS		+= -synctex=1 
 LATEXFLAGS		+= -interaction=nonstopmode 
-LATEXFLAGS		+= -cd
 LATEXFLAGS		+= -file-line-error 
 LATEXFLAGS		+= -emulate-aux-dir 
 
