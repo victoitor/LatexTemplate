@@ -27,7 +27,8 @@ all: pdf
 pdf: $(PDFFILES)
 
 # Regra para gerar .pdf a partir de .tex.
-$(OUTDIR)/%.pdf: $(SRCDIR)/%.tex
+.PHONY: FORCE_MAKE
+$(OUTDIR)/%.pdf: $(SRCDIR)/%.tex FORCE_MAKE
 	latexmk $(LATEXFLAGS) -aux-directory=$(dir $(TMPDIR)/$*) -output-directory=$(dir $@) $<
 
 # Limpa os arquivos temporários
