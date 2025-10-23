@@ -1,4 +1,8 @@
 {
+    "telemetry.telemetryLevel": "off",
+    "chat.editor.wordWrap": "on",
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
     "latex-workshop.latex.external.build.command": "make",
     "latex-workshop.formatting.latex": "tex-fmt",
     "latex-workshop.intellisense.citation.backend": "biblatex",
