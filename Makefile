@@ -10,6 +10,7 @@ OUTDIR	:= out
 TEXFILES	:= $(shell find $(SRCDIR) -type f -name '*.tex' -printf '%P ')
 # Ajusta variáveis se necessário
 -include $(wildcard $(SRCDIR)/*.mk)
+-include $(wildcard $(SRCDIR)/.*.mk)
 
 # Pasta atual
 CURDIR	:= $(shell pwd)
