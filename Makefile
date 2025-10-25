@@ -1,17 +1,20 @@
 # Rodar tarefas em paralelo
 MAKEFLAGS += -j
-MAKEFLAGS += --output-sync
+# MAKEFLAGS += --output-sync
 
 # Diretórios
 SRCDIR	:= src
 TMPDIR	:= tmp
 OUTDIR	:= out
-CURDIR	:= $(shell pwd)
-
 # Procura todos os arquivos .tex nas subpastas de src/ ou lista manualmente
-# TEXFILES	:= $(shell find $(SRCDIR) -type f -name '*.tex')
-TEXFILES	:= $(SRCDIR)/paper.tex $(SRCDIR)/tikz/tikz.tex
-PDFFILES	:= $(TEXFILES:$(SRCDIR)/%.tex=$(OUTDIR)/%.pdf)
+TEXFILES	:= $(shell find $(SRCDIR) -type f -name '*.tex' -printf '%P ')
+# Ajusta variáveis se necessário
+-include $(wildcard $(SRCDIR)/*.mk)
+
+# Pasta atual
+CURDIR	:= $(shell pwd)
+#Arquivos pdf no diretório de saída a partir dos arquivos de entrada
+PDFFILES	:= $(TEXFILES:%.tex=$(OUTDIR)/%.pdf)
 
 # Flags para os comandos
 LATEXFLAGS		= -pdf

@@ -8,9 +8,8 @@
 
 \forestset{
   null/.style={draw, circle, fill=gray!20, inner sep=1pt, minimum size=0.7cm},
-  node/.style={draw, circle, minimum size=0.7cm, inner sep=1pt},
+  mynode/.style={draw, circle, minimum size=0.7cm, inner sep=1pt}
 }
-
 
 \begin{document}
 
@@ -227,50 +226,50 @@
 
 \end{tikzpicture}
 
-\begin{center}
-  \begin{forest}
-    % Configuração global da árvore
-    for tree={
-      grow'=south,        % A árvore cresce de cima para baixo
-      edge={thick},       % Arestas mais grossas
-      s sep=16mm,          % Espaçamento horizontal entre irmãos
-      l sep=12mm,          % Espaçamento vertical entre níveis
-      anchor=center,      % Centraliza cada nó na linha
-    }
+% \begin{center}
+% \begin{forest}
+%   % Configuração global da árvore
+%   for tree={
+%     grow'=south,        % A árvore cresce de cima para baixo
+%     edge={thick},       % Arestas mais grossas
+%     s sep=16mm,          % Espaçamento horizontal entre irmãos
+%     l sep=12mm,          % Espaçamento vertical entre níveis
+%     anchor=center      % Centraliza cada nó na linha
+%   }
 
-    % ======= Estrutura da árvore binária =======
-    [50, node % nó raiz
-      [30, node % filho esquerdo
-        [20, node % filho esquerdo de 30
-          [10, node % filho esquerdo de 20
-            [⊥, null]      % filho esquerdo de 10 (nó nulo, desenhado em cinza)
-            [15, node]     % filho direito de 10 (nó normal)
-          ]
-        ]
-        [40, node % filho direito de 30
-          [⊥, null]        % filho esquerdo de 40 (nó nulo)
-          [45, node              % filho direito de 40
-            [⊥, null]      % filho esquerdo de 45 (nó nulo)
-            [48, node]     % filho direito de 45 (nó normal)
-          ]
-        ]
-      ]
-      [70, node % filho direito de 50
-        [60, node % filho esquerdo de 70
-          [55, node
-            [48, node]     % filho esquerdo de 55
-            [⊥, null]      % filho direito de 55
-          ]
-        ]
-        [80, node % filho direito de 70
-          [⊥, null]        % filho esquerdo de 80
-          [90, node]       % filho direito de 80
-        ]
-      ]
-    ]
-  \end{forest}
+%   % ======= Estrutura da árvore binária =======
+%   [50, mynode % nó raiz
+%     [30, mynode % filho esquerdo
+%       [20, mynode % filho esquerdo de 30
+%         [10, mynode % filho esquerdo de 20
+%           [$\emptyset$, null]      % filho esquerdo de 10 (nó nulo, desenhado em cinza)
+%           [15, mynode]     % filho direito de 10 (nó normal)
+%         ]
+%       ]
+%       [40, mynode % filho direito de 30
+%         [$\emptyset$, null]        % filho esquerdo de 40 (nó nulo)
+%         [45, mynode              % filho direito de 40
+%           [$\emptyset$, null]      % filho esquerdo de 45 (nó nulo)
+%           [48, mynode]     % filho direito de 45 (nó normal)
+%         ]
+%       ]
+%     ]
+%     [70, mynode % filho direito de 50
+%       [60, mynode % filho esquerdo de 70
+%         [55, mynode
+%           [48, mynode]     % filho esquerdo de 55
+%           [$\emptyset$, null]      % filho direito de 55
+%         ]
+%       ]
+%       [80, mynode % filho direito de 70
+%         [$\emptyset$, null]        % filho esquerdo de 80
+%         [90, mynode]       % filho direito de 80
+%       ]
+%     ]
+%   ]
+% \end{forest}
 
-\end{center}
+% \end{center}
 
 \section{Exercícios}
 
