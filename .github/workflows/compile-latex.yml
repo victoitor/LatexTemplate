@@ -29,10 +29,34 @@ jobs:
         with:
           tectonic-version: 0.15
           biber-version: 2.17
+      - name: Read src/.texfiles.mk for TEXFILES
+        uses: falti/dotenv-action
+        with:
+          path: ./src/.texfiles.mk
+          ensure-exists: false
+          export-variables: true
+          log-variables: true
+      - name: Read src/texfiles.mk for TEXFILES
+        uses: falti/dotenv-action
+        with:
+          path: ./src/texfiles.mk
+          ensure-exists: false
+          export-variables: true
+          log-variables: true
       - name: Run Tectonic
-        run: tectonic ./paper/paper.tex
+        run: |
+          if [ -z "$TEXFILES" ]; then
+            echo "TEXFILES not set, finding all .tex files in src/"
+            TEXFILES=$(find src -type f -name '*.tex' -printf '%P ')
+          fi
+
+          mkdir -p out
+          echo "Compiling: $TEXFILES"
+          for file in $TEXFILES; do
+            tectonic -C compile "src/$file" --outdir=out
+          done
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: compiled-pdf
-          path: ./paper/paper.pdf
+          name: compiled-pdfs
+          path: ./out/*.pdf

@@ -15,15 +15,13 @@ jobs:
       - name: Download compiled PDF
         uses: actions/download-artifact@v4
         with:
-          name: compiled-pdf
+          name: compiled-pdfs
           path: ./artifact
 
       - name: Create or Update "latest" GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: Latest Release
-          tag_name: latest
-          files: ./artifact/paper.pdf
+          files: ./artifact/*.pdf
           make_latest: true
           body: |
             Latest pdf file.

@@ -1,1 +1,0 @@
-TEXFILES	:= paper.tex

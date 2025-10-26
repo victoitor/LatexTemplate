@@ -6,14 +6,16 @@ MAKEFLAGS += -j
 SRCDIR	:= src
 TMPDIR	:= tmp
 OUTDIR	:= out
-# Procura todos os arquivos .tex nas subpastas de src/ ou lista manualmente
-TEXFILES	:= $(shell find $(SRCDIR) -type f -name '*.tex' -printf '%P ')
-# Ajusta variáveis se necessário
--include $(wildcard $(SRCDIR)/*.mk)
--include $(wildcard $(SRCDIR)/.*.mk)
-
-# Pasta atual
 CURDIR	:= $(shell pwd)
+
+# Inclui arquivos .mk adicionais, se existirem
+-include $(wildcard $(SRCDIR)/.*.mk $(SRCDIR)/*.mk)
+
+# Define TEXFILES se não estiver definido
+ifndef TEXFILES
+	TEXFILES := $(shell find $(SRCDIR) -type f -name '*.tex' -printf '%P ')
+endif
+
 #Arquivos pdf no diretório de saída a partir dos arquivos de entrada
 PDFFILES	:= $(TEXFILES:%.tex=$(OUTDIR)/%.pdf)
 
