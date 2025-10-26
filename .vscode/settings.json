@@ -10,4 +10,5 @@
     "latex-workshop.latex.external.build.args": [
         "all"
     ],
+    "latex-workshop.linting.chktex.enabled": true,
 }
