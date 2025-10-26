@@ -29,22 +29,13 @@ jobs:
         with:
           tectonic-version: 0.15
           biber-version: 2.17
-      - name: Read src/.texfiles.mk for TEXFILES
-        uses: falti/dotenv-action
-        with:
-          path: ./src/.texfiles.mk
-          ensure-exists: false
-          export-variables: true
-          log-variables: true
-      - name: Read src/texfiles.mk for TEXFILES
-        uses: falti/dotenv-action
-        with:
-          path: ./src/texfiles.mk
-          ensure-exists: false
-          export-variables: true
-          log-variables: true
       - name: Run Tectonic
         run: |
+          MKFILES = $(find src -type f -name '.*.mk' -name '*.mk' -printf '%P ')
+          for mkfile in $MKFILES; do
+            echo "Including makefile: $mkfile"
+            source "$mkfile"
+          done
           if [ -z "$TEXFILES" ]; then
             echo "TEXFILES not set, finding all .tex files in src/"
             TEXFILES=$(find src -type f -name '*.tex' -printf '%P ')
