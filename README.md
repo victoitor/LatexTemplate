@@ -1,14 +1,10 @@
 # Latex Paper Template
 
-## Where is the PDF?
-
-[Here](https://github.com/victoitor/<repository>/releases/download/latest/paper.pdf) is the current version of the paper.
-
-[Here](<link>) are the images generated from the whiteboards.
-
 # Links
 
 [latexmk](https://ctan.org/pkg/latexmk/)
+
+[Vídeo de integração de latex com github com CI](https://youtu.be/6YGmNtsmz2k?si=fo4gj_mIYANLLXxb)
 
 # Git Workflow Guide
 
