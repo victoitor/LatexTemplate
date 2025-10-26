@@ -31,12 +31,10 @@ jobs:
           biber-version: 2.17
       - name: Run Tectonic
         run: |
-          MKFILES=$(find src -type f -name '*.mk' -printf '%P ')
-          echo "Found makefiles: $MKFILES"
-          for mkfile in $MKFILES; do
-            echo "Including makefile: $mkfile"
-            source "src/$mkfile"
-          done
+          if [ -f "src/.env.texfiles" ]; then
+            echo ".env.texfiles found, sourcing..."
+            source src/.env.texfiles
+          fi
           if [ -z "$TEXFILES" ]; then
             echo "TEXFILES not set, finding all .tex files in src/"
             TEXFILES=$(find src -type f -name '*.tex' -printf '%P ')

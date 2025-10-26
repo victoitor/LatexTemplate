@@ -8,11 +8,11 @@ TMPDIR	:= tmp
 OUTDIR	:= out
 CURDIR	:= $(shell pwd)
 
-# Inclui arquivos .mk adicionais, se existirem
--include $(wildcard $(SRCDIR)/.*.mk $(SRCDIR)/*.mk)
-
-# Define TEXFILES se não estiver definido
-ifndef TEXFILES
+# Inclui arquivo com definição de texfiles, se existir. Se TEXFILES não estiver definido, usa todos que estão na pasta src
+-include $(SRCDIR)/.env.texfiles
+ifdef TEXFILES
+	TEXFILES := $(subst ",,$(TEXFILES))
+else
 	TEXFILES := $(shell find $(SRCDIR) -type f -name '*.tex' -printf '%P ')
 endif
 
