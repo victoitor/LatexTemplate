@@ -43,7 +43,7 @@ jobs:
           mkdir -p out
           echo "Compiling: $TEXFILES"
           for file in $TEXFILES; do
-            tectonic -C compile "src/$file" --outdir=out
+            tectonic --outdir=out "src/$file" 
           done
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
