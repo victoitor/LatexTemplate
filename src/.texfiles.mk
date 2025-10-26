@@ -1,1 +1,1 @@
-TEXFILES = paper.tex tikz/tikz.tex
+TEXFILES=paper.tex tikz/tikz.tex
