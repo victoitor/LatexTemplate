@@ -35,7 +35,7 @@ jobs:
           echo "Found makefiles: $MKFILES"
           for mkfile in $MKFILES; do
             echo "Including makefile: $mkfile"
-            source "$mkfile"
+            source "src/$mkfile"
           done
           if [ -z "$TEXFILES" ]; then
             echo "TEXFILES not set, finding all .tex files in src/"
