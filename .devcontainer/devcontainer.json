@@ -22,8 +22,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-vscode.makefile-tools",
-				"ms-azuretools.vscode-containers"
+				"ms-vscode.makefile-tools"
 			]
 		}
 	},
