@@ -1,3 +1,6 @@
 # Diretórios de saída
 tmp/
 out/
+
+# Editores
+.vscode/
