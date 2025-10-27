@@ -21,17 +21,22 @@ PDFFILES	:= $(TEXFILES:%.tex=$(OUTDIR)/%.pdf)
 
 # Flags para os comandos
 LATEXFLAGS		= -pdf
-LATEXFLAGS		+= -synctex=1 
 LATEXFLAGS		+= -interaction=nonstopmode 
 LATEXFLAGS		+= -cd
 LATEXFLAGS		+= -file-line-error 
+LATEXFLAGS		+= -halt-on-error 
 LATEXFLAGS		+= -emulate-aux-dir 
 
+
 .PHONY: all
-all: pdf
+all: pdf-synctex
 
 .PHONY: pdf
 pdf: $(PDFFILES)
+
+.PHONY: pdf-synctex
+pdf-synctex: LATEXFLAGS	+= -synctex=1 
+pdf-synctex: pdf
 
 # Regra para gerar .pdf a partir de .tex.
 .PHONY: FORCE_MAKE
