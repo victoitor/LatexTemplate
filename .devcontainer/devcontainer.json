@@ -33,11 +33,8 @@
 				"latex-workshop.latex.external.build.args": [
 					"all"
 				],
-				"latex-workshop.linting.chktex.enabled": true,
-			},
-			"extensions": [
-				"ms-vscode.makefile-tools"
-			]
+				"latex-workshop.linting.chktex.enabled": true
+			}
 		}
 	},
 	// // Para podman com SELinux
