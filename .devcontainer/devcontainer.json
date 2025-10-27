@@ -12,7 +12,7 @@
 			"ppa": "false"
 		},
 		"ghcr.io/prulloac/devcontainer-features/latex:1": {
-			"packages": "biblatex, biber, chktex"
+			"packages": "chktex, latexindent, biblatex, biber"
 		},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "make, tex-fmt",
