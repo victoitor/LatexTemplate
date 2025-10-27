@@ -1,32 +1,39 @@
 {
-  "name": "LaTeX on Debian Stable",
-  "image": "debian:stable",
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": false,
-      "installOhMyZsh": false,
-      "installOhMyZshConfig": false
-    },
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "texlive-latex-extra, texlive-lang-english, texlive-lang-portuguese, texlive-science, latexmk, tex-fmt, make, texlive-bibtex-extra, biber, chktex",
-      "upgradePackages": true
-    }
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "James-Yu.latex-workshop",
-        "github.vscode-pull-request-github",
-        "ms-vscode.makefile-tools"
-      ]
-    }
-  },
-  "securityOpt": [
-    "label=disable"
-  ],
-  "remoteEnv": {
-    "PODMAN_USERNS": "keep-id"
-  },
-  "remoteUser": "vscode"
+	"build": {
+		"dockerfile": "./Containerfile",
+		"context": "."
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": false,
+			"installOhMyZsh": false,
+			"installOhMyZshConfig": false
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"ppa": "false"
+		},
+		"ghcr.io/prulloac/devcontainer-features/latex:1": {
+			"packages": "biblatex, biber, chktex"
+		},
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+			"packages": "make, tex-fmt",
+			"upgradePackages": true
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.makefile-tools",
+				"ms-azuretools.vscode-containers"
+			]
+		}
+	},
+	// // Para podman com SELinux
+	// "securityOpt": [
+	// 	"label=disable"
+	// ],
+	// "remoteEnv": {
+	// 	"PODMAN_USERNS": "keep-id"
+	// },
+	"remoteUser": "vscode"
 }
