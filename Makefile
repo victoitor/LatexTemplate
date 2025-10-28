@@ -40,12 +40,8 @@ pdf-synctex: pdf
 $(SRCDIR)/%.pdf: $(SRCDIR)/%.tex FORCE_MAKE
 	latexmk $(LATEXFLAGS) -aux-directory=$(CURDIR)/$(dir $(TMPDIR)/$*) -output-directory=$(CURDIR)/$(dir $@) $<
 
-# Limpa os arquivos temporários
-.PHONY: clean-tmp
-clean-tmp:
-	rm -rf $(TMPDIR)
-
 # Limpa os arquivos de saída e temporários
 .PHONY: clean
 clean: LATEXFLAGS	+= -C
-clean: pdf clean-tmp
+clean: pdf
+	rm -rf $(TMPDIR)
