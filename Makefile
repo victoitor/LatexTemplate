@@ -26,7 +26,6 @@ LATEXFLAGS		+= -cd
 LATEXFLAGS		+= -file-line-error 
 LATEXFLAGS		+= -emulate-aux-dir 
 
-
 .PHONY: all
 all: pdf-synctex
 
@@ -44,10 +43,11 @@ $(OUTDIR)/%.pdf: $(SRCDIR)/%.tex FORCE_MAKE
 
 # Limpa os arquivos temporários
 .PHONY: clean-tmp
-clean-tmp:
-	rm -rf $(TMPDIR)
+clean-tmp: LATEXFLAGS	+= -c
+clean-tmp: pdf
 
 # Limpa os arquivos de saída e temporários
 .PHONY: clean
-clean: clean-tmp
+clean:
+	rm -rf $(TMPDIR)
 	rm -rf $(OUTDIR)
