@@ -24,7 +24,6 @@ LATEXFLAGS		= -pdf
 LATEXFLAGS		+= -interaction=nonstopmode 
 LATEXFLAGS		+= -cd
 LATEXFLAGS		+= -file-line-error 
-LATEXFLAGS		+= -halt-on-error 
 LATEXFLAGS		+= -emulate-aux-dir 
 
 
