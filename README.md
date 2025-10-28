@@ -1,5 +1,15 @@
 # Latex Paper Template
 
+Se tiver um pacote faltando, buscar com
+```bash
+tlmgr search -global <pacote>
+```
+e instalar com 
+```bash
+sudo tlmgr install <pacote>
+```
+Se resolver pacote faltando, adicionar em `.devcontainer/descontainer.json`.
+
 # Links
 
 [latexmk](https://ctan.org/pkg/latexmk/)
