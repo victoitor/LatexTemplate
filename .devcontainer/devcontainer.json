@@ -12,7 +12,7 @@
 			"ppa": "false"
 		},
 		"ghcr.io/prulloac/devcontainer-features/latex:1": {
-			"packages": "chktex, biblatex, biber"
+			"packages": "chktex, synctex, texdoc, biblatex, biber"
 		},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "make, tex-fmt",
@@ -23,13 +23,12 @@
 		"vscode": {
 			"settings": {
 				"editor.formatOnSave": true,
-				"latex-workshop.latex.external.build.command": "make",
+				"latex-workshop.bibtex-format.sort.enabled": true,
 				"latex-workshop.formatting.latex": "tex-fmt",
 				"latex-workshop.intellisense.citation.backend": "biblatex",
-				"latex-workshop.latex.external.build.args": [
-					"all"
-				],
-				"latex-workshop.linting.chktex.enabled": true
+				"latex-workshop.latex.external.build.command": "make",
+				"latex-workshop.linting.chktex.enabled": true,
+				"latex-workshop.synctex.afterBuild.enabled": true
 			}
 		}
 	},
