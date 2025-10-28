@@ -5,7 +5,6 @@ MAKEFLAGS += -j
 # Diretórios
 SRCDIR	:= src
 TMPDIR	:= tmp
-OUTDIR	:= out
 CURDIR	:= $(shell pwd)
 
 # Inclui arquivo com definição de texfiles, se existir. Se TEXFILES não estiver definido, usa todos que estão na pasta src
@@ -17,7 +16,7 @@ else
 endif
 
 #Arquivos pdf no diretório de saída a partir dos arquivos de entrada
-PDFFILES	:= $(TEXFILES:%.tex=$(OUTDIR)/%.pdf)
+PDFFILES	:= $(TEXFILES:%.tex=$(SRCDIR)/%.pdf)
 
 # Flags para os comandos
 LATEXFLAGS		= -pdf
@@ -38,16 +37,15 @@ pdf-synctex: pdf
 
 # Regra para gerar .pdf a partir de .tex.
 .PHONY: FORCE_MAKE
-$(OUTDIR)/%.pdf: $(SRCDIR)/%.tex FORCE_MAKE
+$(SRCDIR)/%.pdf: $(SRCDIR)/%.tex FORCE_MAKE
 	latexmk $(LATEXFLAGS) -aux-directory=$(CURDIR)/$(dir $(TMPDIR)/$*) -output-directory=$(CURDIR)/$(dir $@) $<
 
 # Limpa os arquivos temporários
 .PHONY: clean-tmp
-clean-tmp: LATEXFLAGS	+= -c
-clean-tmp: pdf
+clean-tmp:
+	rm -rf $(TMPDIR)
 
 # Limpa os arquivos de saída e temporários
 .PHONY: clean
-clean:
-	rm -rf $(TMPDIR)
-	rm -rf $(OUTDIR)
+clean: LATEXFLAGS	+= -C
+clean: pdf clean-tmp
