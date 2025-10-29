@@ -24,6 +24,8 @@ LATEXFLAGS		+= -interaction=nonstopmode
 LATEXFLAGS		+= -cd
 LATEXFLAGS		+= -file-line-error 
 LATEXFLAGS		+= -emulate-aux-dir 
+LATEXFLAGS		+= -halt-on-error
+
 
 .PHONY: all
 all: pdf-synctex
