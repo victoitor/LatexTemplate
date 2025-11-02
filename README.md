@@ -1,5 +1,13 @@
 # Latex Paper Template
 
+## Arquivos a compilar
+
+Por padrão, todos os arquivos .tex que estão na pasta src serão compilados.
+Para definir um subconjunto de arquivos raiz a serem compilados, criar arquivo `.env.texfiles` na pasta `src/`. Para adicionar compilar os arquivos `paper00.tex` e `pasta1/paper01.tex` dentro da pasta `src/`, adicionar ao arquivo `.env.texfiles` a seguinte linha:
+```
+TEXFILES="paper00.tex pasta1/paper01.tex"
+```
+
 ## Compilar latex
 Para compilar:
 ```bash
