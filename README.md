@@ -1,5 +1,27 @@
 # Latex Paper Template
 
+## Compilar latex
+Para compilar:
+```bash
+make
+```
+
+Para limpar tudo sobre a compilação:
+```bash
+make clean
+```
+
+Para limpar apenas os arquivos temporários:
+```bash
+rm -rf tmp
+```
+
+## Ambiente de desevolvimento com vscode
+
+Instalar docker e extensão ms-vscode-remote.remote-containers. Em seguida, use CTRL+SHIFT+P e escolha "Dev Containers: Reopen in Container". Espere a montagem do container e está tudo pronto.
+
+## Pacotes latex
+
 Se tiver um pacote faltando, buscar com
 ```bash
 tlmgr search -global <pacote>
