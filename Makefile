@@ -25,8 +25,8 @@ LATEXFLAGS		+= -cd
 LATEXFLAGS		+= -file-line-error 
 LATEXFLAGS		+= -emulate-aux-dir 
 # Incluir apenas um dos dois a seguir
-LATEXFLAGS		+= -interaction=nonstopmode 
-# LATEXFLAGS		+= -halt-on-error
+# LATEXFLAGS		+= -interaction=nonstopmode 
+LATEXFLAGS		+= -halt-on-error
 
 
 .PHONY: all
