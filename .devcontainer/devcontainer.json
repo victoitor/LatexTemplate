@@ -12,11 +12,10 @@
 			"ppa": "false"
 		},
 		"ghcr.io/prulloac/devcontainer-features/latex:1": {
-			"packages": "chktex, synctex, texdoc, biblatex, biber"
+			"packages": "chktex, synctex, texdoc, cm-super, biblatex, biber"
 		},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "make, tex-fmt",
-			"upgradePackages": true
+			"packages": "make, tex-fmt"
 		}
 	},
 	"customizations": {
@@ -30,7 +29,10 @@
 				"latex-workshop.linting.chktex.enabled": true,
 				"latex-workshop.synctex.afterBuild.enabled": true
 			}
-		}
+		},
+		"extensions": [
+			"valentjn.vscode-ltex"
+		]
 	},
 	// // Para podman com SELinux
 	// "securityOpt": [
@@ -39,5 +41,6 @@
 	// "remoteEnv": {
 	// 	"PODMAN_USERNS": "keep-id"
 	// },
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	// "postCreateCommand": "sudo tlmgr path add"
 }
