@@ -4,16 +4,16 @@
 
 # Diretórios
 SRCDIR	:= src
-TMPDIR	:= tmp
+TMPDIR	:= .tmp
 OUTDIR	:= out
 CURDIR	:= $(shell pwd)
 
-# Inclui arquivo com definição de texfiles, se existir. Se TEXFILES não estiver definido, usa todos que estão na pasta src
+# Inclui arquivo com definição de texfiles, se existir. Se TEXFILES não estiver definido, usa todos os arquivos *.tex que contém "\documentclass" na pasta de fontes
 -include $(SRCDIR)/.env.texfiles
 ifdef TEXFILES
 	TEXFILES := $(subst ",,$(TEXFILES))
 else
-	TEXFILES := $(shell find $(SRCDIR) -type f -name '*.tex' -printf '%P ')
+	TEXFILES := $(shell grep -rl '^[ \t]*\\documentclass' --include='*.tex' $(SRCDIR))
 endif
 
 # Arquivos pdf no diretório de saída a partir dos arquivos de entrada
