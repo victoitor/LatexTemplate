@@ -1,5 +1,5 @@
 # Diretórios de saída
-tmp/
+.tmp/
 out/
 
 # Editores
