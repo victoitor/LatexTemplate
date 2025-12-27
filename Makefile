@@ -12,12 +12,13 @@ CURDIR	:= $(shell pwd)
 -include $(SRCDIR)/.env.texfiles
 ifdef TEXFILES
 	TEXFILES := $(subst ",,$(TEXFILES))
+	TEXFILES := $(TEXFILES:%=$(SRCDIR)/%)
 else
 	TEXFILES := $(shell grep -rl '^[ \t]*\\documentclass' --include='*.tex' $(SRCDIR))
 endif
 
 # Arquivos pdf no diretório de saída a partir dos arquivos de entrada
-PDFFILES	:= $(TEXFILES:%.tex=$(OUTDIR)/%.pdf)
+PDFFILES	:= $(TEXFILES:$(SRCDIR)/%.tex=$(OUTDIR)/%.pdf)
 
 # Flags para os comandos
 LATEXFLAGS		= -pdf
@@ -31,6 +32,13 @@ LATEXFLAGS		+= -halt-on-error
 
 .PHONY: all
 all: pdf-synctex
+
+## Debug
+# print-%: 
+# 	@echo '$*=$($*)' 
+# 	@echo ' origin = $(origin $*)' 
+# 	@echo ' flavor = $(flavor $*)' 
+# 	@echo ' value = $(value $*)'
 
 .PHONY: pdf
 pdf: $(PDFFILES)
