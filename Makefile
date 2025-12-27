@@ -33,11 +33,12 @@ LATEXFLAGS		+= -halt-on-error
 .PHONY: all
 all: pdf-synctex
 
-print-%: 
-	@echo '$*=$($*)' 
-	@echo ' origin = $(origin $*)' 
-	@echo ' flavor = $(flavor $*)' 
-	@echo ' value = $(value $*)'
+## Debug
+# print-%: 
+# 	@echo '$*=$($*)' 
+# 	@echo ' origin = $(origin $*)' 
+# 	@echo ' flavor = $(flavor $*)' 
+# 	@echo ' value = $(value $*)'
 
 .PHONY: pdf
 pdf: $(PDFFILES)
