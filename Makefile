@@ -18,7 +18,8 @@ else
 endif
 
 # Arquivos pdf no diretório de saída a partir dos arquivos de entrada
-PDFFILES	:= $(TEXFILES:$(SRCDIR)/%.tex=$(OUTDIR)/%.pdf)
+PDFFILES	:= $(TEXFILES:%.tex=%.pdf)
+OUTPDFFILES	:= $(TEXFILES:$(SRCDIR)/%.tex=$(OUTDIR)/%.pdf)
 
 # Flags para os comandos
 LATEXFLAGS		= -pdf
@@ -33,31 +34,41 @@ LATEXFLAGS		+= -halt-on-error
 .PHONY: all
 all: pdf-synctex
 
-## Debug
-# print-%: 
-# 	@echo '$*=$($*)' 
-# 	@echo ' origin = $(origin $*)' 
-# 	@echo ' flavor = $(flavor $*)' 
-# 	@echo ' value = $(value $*)'
-
 .PHONY: pdf
 pdf: $(PDFFILES)
+
+.PHONY: pdf-out
+pdf-out: $(OUTPDFFILES)
 
 .PHONY: pdf-synctex
 pdf-synctex: LATEXFLAGS	+= -synctex=1 
 pdf-synctex: pdf
 
-# Regra para gerar .pdf a partir de .tex.
+# Regra para gerar .pdf a partir de .tex (pasta out)
 .PHONY: FORCE_MAKE
 $(OUTDIR)/%.pdf: $(SRCDIR)/%.tex FORCE_MAKE
 	latexmk $(LATEXFLAGS) -aux-directory=$(CURDIR)/$(dir $(TMPDIR)/$*) -output-directory=$(CURDIR)/$(dir $@) $<
 
+# Regra para gerar .pdf a partir de .tex (pasta src)
+$(SRCDIR)/%.pdf: $(SRCDIR)/%.tex FORCE_MAKE
+	latexmk $(LATEXFLAGS) $<
+
 # Limpa os arquivos temporários
-.PHONY: clean-tmp
-clean-tmp:
+.PHONY: clean-tmp-dir
+clean-tmp-dir:
 	rm -rf $(TMPDIR)
 
 # Limpa os arquivos de saída e temporários
-.PHONY: clean
-clean: clean-tmp
+.PHONY: clean-dir
+clean-dir: clean-tmp
 	rm -rf $(OUTDIR)
+
+# Limpa os arquivos temporários
+.PHONY: clean-tmp clean-tmp-dir
+clean-tmp: LATEXFLAGS	+= -c
+clean-tmp: pdf-synctex 
+
+# Limpa arquivos de saída e temporários
+.PHONY: clean
+clean: LATEXFLAGS	+= -C
+clean: pdf-synctex clean-dir
