@@ -8,7 +8,7 @@
 			"installOhMyZsh": false,
 			"installOhMyZshConfig": false
 		},
-		"ghcr.io/devcontainers/features/git:1": {
+		"ghcr.io/devcontainers/features/git:": {
 			"ppa": "false"
 		},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
